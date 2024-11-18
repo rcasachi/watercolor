@@ -4,5 +4,5 @@ export const TesteInput = ({ children }: { children: React.ReactNode }) => {
       <h1>TesteInput Component</h1>
       {children}
     </div>
-  );
-};
+  )
+}

@@ -1,63 +1,48 @@
-# Turborepo starter
+# Watercolor Package Composition
 
-This is an official starter Turborepo.
+A set of tools and guidelines to empower developers to create universal experiences faster, more scalable and more consistently.
 
-## Using this example
+## Packages
 
-Run the following command:
+This codebase is a monorepo with a set of individually versioned libraries.
 
-```sh
-npx create-turbo@latest
-```
+- [@watercolor/ui](https://github.com/rcasachi/watercolor/tree/main/packages/components) : A set of React components that follow our design tokens
+- [@water/typescript-config](https://github.com/rcasachi/watercolor/tree/main/packages/typescript-config) : Typescript configuration
 
-## What's inside?
+## Applications
 
-This Turborepo includes the following packages/apps:
+- [docs](https://github.com/rcasachi/watercolor/tree/main/apps/docs) : Our documentation website/stories
 
-### Apps and Packages
+## Utilities
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
+This Package Composition has some additional tools already setup:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- [Biome](https://biomejs.dev) for code linting and formatting
 
-### Build
+## Build
 
 To build all apps and packages, run the following command:
 
-```
-cd my-turborepo
-pnpm build
+```bash
+npm run build
 ```
 
-### Develop
+## Develop
 
 To develop all apps and packages, run the following command:
 
-```
-cd my-turborepo
-pnpm dev
+```bash
+npm run dev
 ```
 
-### Remote Caching
+## Remote Caching
 
 Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
 By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
-```
-cd my-turborepo
+```bash
 npx turbo login
 ```
 
@@ -65,11 +50,11 @@ This will authenticate the Turborepo CLI with your [Vercel account](https://verc
 
 Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
 
-```
+```bash
 npx turbo link
 ```
 
-## Useful Links
+### Useful Links
 
 Learn more about the power of Turborepo:
 
@@ -79,3 +64,7 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+## Contributing
+
+We welcome all kind of contributions. Please read our CONTRIBUTING.md first, we follow some practices to keep a common and standarized architecture in our changes.
