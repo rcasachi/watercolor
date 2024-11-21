@@ -6,7 +6,7 @@ A set of tools and guidelines to empower developers to create universal experien
 
 This codebase is a monorepo with a set of individually versioned libraries.
 
-- [@watercolor/ui](https://github.com/rcasachi/watercolor/tree/main/packages/components) : A set of React components that follow our design tokens
+- [@watercolor/ui](https://github.com/rcasachi/watercolor/tree/main/packages/ui) : A set of React components that follow our design tokens
 - [@water/typescript-config](https://github.com/rcasachi/watercolor/tree/main/packages/typescript-config) : Typescript configuration
 
 ## Applications
