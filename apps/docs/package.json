@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "tsc -b && storybook build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy-storybook": "storybook-to-ghpages --existing-output-dir=storybook-static",
+    "deploy": "npm run build && npm run deploy-storybook"
   },
   "dependencies": {
     "@watercolor/ui": "*",
@@ -21,6 +23,7 @@
     "@storybook/blocks": "^8.4.5",
     "@storybook/react": "^8.4.5",
     "@storybook/react-vite": "^8.4.5",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/test": "^8.4.5",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
