@@ -1,0 +1,255 @@
+import { Meta } from "@storybook/blocks"
+
+import '@water-color/ui/global.css'
+import { color, semantic } from '@water-color/ui/utils'
+
+export const colorNames = [
+  'neutral',
+  'blue',
+  'green',
+  'yellow',
+  'orange',
+  'red',
+  'purple',
+  'pink',
+  'coral',
+  'mauve',
+  'gray',
+  'slate',
+  'sage',
+  'olive',
+  'sand',
+  'tomato',
+  'crimson',
+  'plum',
+  'violet',
+  'indigo',
+  'sky',
+  'mint',
+  'cyan',
+  'teal',
+  'grass',
+  'lime',
+  'amber',
+  'brown',
+  'bronze',
+  'gold',
+];
+
+export const scales = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+export const variants = ['default', 'disabled', 'muted', 'primary', 'secondary', 'accent', 'success', 'warning', 'error', 'info'];
+export const patterns = ['text', 'backgroundColor', 'borderColor'];
+
+<Meta title="Foundations/Colors" />
+
+<div className="sb-container">
+  # Colors
+
+  The **Watercolor UI** colors are categorized into three groups:
+    - **Base color** tokens are the lowest level tokens and map directly to a raw value. They are only to be used as a reference for semantic and component tokens. Base color tokens should never be used directly in code.
+
+    - **Semantic color** tokens represent UI patterns such as text, borders, shadows, and backgrounds. Semantic color tokens reference base color tokens.
+
+    - **Component color** tokens are used for values that are more specific or unique than semantic color tokens. These tokens are limited to component scope. Component color tokens may reference both base and functional tokens.
+
+  ## Base Colors
+
+  Base colors principles:
+
+    - The light and dark scale directions are inverted. By inverting the scales, light and dark themes are able to share many of the same functional color tokens without custom overrides.
+
+    - The first six steps of scales (0-6) are typically used for background colors.
+
+    - For background control components with state, the scale accommodates rest (1), hover (2), and active (3).
+
+    - Steps 7 and 8 are typically used for borders and dividers in the themes. Step 8 is considered the minimum contrast value for interactive control borders against **muted**.
+
+    - Steps 9 and 10 are typically used for text and icons. Step 9 is considered the minimum contrast value for text against steps 0 through 4, while 10 meets the minimum against 5 and 6.
+
+    - Contrast levels can be adjusted by moving up or down the scale. For example, the light high contrast theme utilizes steps 2 through 7 for backgrounds, 10 for borders, and 11 to 13 for text. For high contrast themes, the goal is to hit a minimum of 7:1 for most text and interactive elements. If a softer background color must be used, make use of borders around elements to increase contrast.
+
+  {colorNames.map((name) => (
+    <div key={`base-${name}`}>
+      <div style={{ display: 'inline-block', width: 80 }}>
+        <p>{name}</p>
+      </div>
+        {scales.map((scale) => (
+          <div
+            style={{ backgroundColor: color(name, scale), width: 60, height: 40, display: 'inline-block' }}
+            key={`light-${name}-${scale}`}
+          />
+        ))}
+    </div>
+  ))}
+
+  ## Semantic Colors
+
+  Semantic colors are typically used to communicate status, action, or emphasis. Each semantic color is tied to a role with a specific meaning. The tokens are named using a consistent convention to make it easier to understand what they do and how they should be used at a glance.
+
+  ```css
+    --prefix-namespace-pattern-property-variant-scale
+
+    /* Examples of Base colors */
+    --color-green-5
+    --color-gold-6
+
+    /* Examples of Semantic colors */
+    --borderColor-muted
+    --borderWidth-thin
+    --boxShadow-inset-thick
+
+    /* Examples of Component colors */
+    --button-primary-bgColor-hover
+    --text-codeInline-fontSize
+  ```
+
+  - **Prefix** provides top-level encapsulation of a particular flavor. It can be used for protected base tokens like Brand color scales, or value overrides in order to avoid collisions.
+    - `brand`: used for marketing/brand specific tokens.
+
+  - **Namespace** creates a scope used to identify how a token may be used. For example, base tokens are the lowest level and are generally used as a reference for functional tokens (the next step above).
+    - `base`: represents global, constant values. These are the lowest level tokens and map directly to a raw value.
+
+  - **Pattern** represents a group of design decisions, or a specific component. Whenever possible, aim to use a name that is generic enough to influence related components. For example, the pattern control can be used for multiple types of controls like buttons, inputs, or interactive action list items. For pattern and component names that are multi-word, use camelCase to separate each word.
+
+  - **Variant** can be used to either modify the pattern or property. Only one variant is allowed per token. It typically represents a stylistic variant of a token such as color or size.
+
+  - **Property** is used to represent an item's style. It usually matches a CSS property, but it can also store other conceptual definitions such as size. Use camelCase for multi-word properties.
+
+  - **Scale** represents ordinals to describe things like state, density, thickness, range, and speed. Scale names strive to follow our size naming convention standards.
+
+  - Individual name blocks for each token should be separated with a single character that is relevant to each framework. For example, use the `-` dash character for CSS variables and `.` dot character for JavaScript.
+
+  ### Color modifiers
+
+  We use the following values to modify the color:
+
+  <table>
+    <thead>
+      <tr>
+        <th>Semantic</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>muted</td>
+        <td>Muted can be used for text and other auxiliary elements on the screen, such as lines, shadows and backgrounds.</td>
+      </tr>
+      <tr>
+        <td>primary</td>
+        <td>Primary is the **brand** and main color which is used across all interactive elements such as buttons, links, inputs, etc. It can define the overall feel and can elicit emotion.</td>
+      </tr>
+      <tr>
+        <td>secondary</td>
+        <td>These act as **supporting colors** to your primary color palette. These are useful for grabbing attention or supporting your primary color. They're also useful for components such as labels and badges.</td>
+      </tr>
+      <tr>
+        <td>accent</td>
+        <td>It is a high priority color, however, it appears punctually on the screen to create a highlight. It can also be used for interactive elements. Links, selected, active, and focus states, and neutral information.</td>
+      </tr>
+      <tr>
+        <td>success</td>
+        <td>Success colors communicate a positive action, a positive trend, or a successful confirmation. It is used to convey the perception that an action occurred as expected. It can be used for primary success buttons, positive messaging and successful states. </td>
+      </tr>
+      <tr>
+        <td>warning</td>
+        <td>Warning colors can communicate that an action is potentially destructive or **on-hold**. These colors are commonly used in confirmations to grab the users' attention. It is also used to notify the user of something that has happened or to draw their attention. It can be used for warning states, system status, banners, active processes and in progress states.</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>Error colors are used across error states and in **critical or destructive** actions. They communicate a destructive/negative action. Buttons and error messages are some examples.</td>
+      </tr>
+      <tr>
+        <td>info</td>
+        <td>Informative is used to inform the user about a topic, such as a tip or new feature. It is used for static elements.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{patterns.map((pattern) => (
+  <div key={`pattern-${pattern}`}>
+    <div style={{ display: 'inline-block', width: 150 }}>
+      <p>{pattern}</p>
+    </div>
+      {variants.map((variant) => (
+        <div
+          style={{ backgroundColor: semantic(pattern, variant), width: 80, height: 40, display: 'inline-block' }}
+          key={`variant-${pattern}-${variant}`}
+        >
+          <p>{variant}</p>
+        </div>
+      ))}
+  </div>
+))}
+
+<div style={{ paddingBottom: 14 }}>
+  <div style={{ display: 'inline-block', width: 150 }} />
+  <div
+    style={{ backgroundColor: semantic('text', 'link'), width: 70, height: 40, display: 'inline-block' }}
+  >
+    <p>text-link</p>
+  </div>
+  <div
+    style={{ backgroundColor: semantic('focus', 'outlineColor'), width: 140, height: 40, display: 'inline-block' }}
+  >
+    <p>focus-outlineColor</p>
+  </div>
+  <div
+    style={{ backgroundColor: semantic('overlay', 'backgroundColor'), width: 180, height: 40, display: 'inline-block' }}
+  >
+    <p>overlay-backgroundColor</p>
+  </div>
+  <div
+    style={{ backgroundColor: semantic('overlay', 'borderColor'), width: 140, height: 40, display: 'inline-block' }}
+  >
+    <p>overlay-borderColor</p>
+  </div>
+  <div
+    style={{ backgroundColor: semantic('overlay', 'backdrop', 'backgroundColor'), width: 270, height: 40, display: 'inline-block' }}
+  >
+    <p>overlay-backdrop-backgroundColor</p>
+  </div>
+</div>
+
+
+## Color theme
+
+  The **Watercolor UI** has 3 themes:
+    - Light theme
+
+    - Dark theme
+
+    - Watercolor theme
+
+The theme is defined by using the data-light-theme and data-dark-theme attributes with the class `light`, `dark` or `watercolor`. The value of the attribute should be the name of the theme file.
+
+```html
+<body data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="light">
+```
+
+## Accessibility
+
+### Assure adequate color contrast
+
+Color contrast between text and its background must meet required [WCAG standards](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+
+The contrast requirements are:
+
+- 4.5:1 for normal text
+- 3:1 for large text (>24px)
+- 3:1 for UI elements and graphics
+- No contrast requirement for decorative and disabled elements
+
+Use an online [contrast checker](https://webaim.org/resources/contrastchecker/).
+
+### Don't rely on color alone
+
+#### Show state with more than color
+
+Color vision deficiency is different for different people. To make sure everyone can understand and use your UI you should show state with more than a change in color. Unless color is only used as a visual "flourish", the information that the color conveys must be present either in the text (e.g. in the case of buttons, the actual wording of the button label), or through some additional visual cue (such as an icon).
+
+#### Connect labels to graphs with lines or patterns
+
+For charts and graphs you can position the labels on top or close to each section. You can also use patterns to distinguish different parts.

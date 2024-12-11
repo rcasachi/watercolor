@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@storybook/addons": "^7.6.17",
     "turbo": "^2.2.3",
     "typescript": "5.5.4"
   },
@@ -16,5 +17,8 @@
     "node": ">=18"
   },
   "packageManager": "npm@10.7.0",
-  "workspaces": ["apps/*", "packages/*"]
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

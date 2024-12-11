@@ -1,5 +1,6 @@
 import { Button } from './Button'
 import './header.css'
+import '@water-color/ui/global.css'
 
 type User = {
   name: string
@@ -19,7 +20,7 @@ export const Header = ({
   onCreateAccount,
 }: HeaderProps) => (
   <header>
-    <div className="storybook-header">
+    <div className="storybook-header global">
       <div>
         {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
         <svg

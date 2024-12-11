@@ -1,8 +1,10 @@
 {
-  "name": "@watercolor/ui",
+  "name": "@water-color/ui",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "exports": {
+    "./global.css": "./src/foundations/global.css",
+    "./utils": "./src/utils/index.ts",
     "./teste-input": "./src/teste-input.tsx",
     "./button": "./src/button.tsx",
     "./card": "./src/card.tsx",

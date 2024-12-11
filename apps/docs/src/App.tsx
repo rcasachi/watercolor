@@ -1,13 +1,14 @@
 import reactLogo from 'assets/react.svg/react.svg'
 import { useState } from 'react'
 import './App.css'
+import '@water-color/ui/global.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
+      <div className="global">
         <a href="https://vite.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo" alt="Vite logo" />
         </a>
