@@ -5,9 +5,14 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "biome check .",
-    "format": "biome check . --write"
+    "format": "biome check . --write",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@biomejs/biome": "1.9.4",
     "@storybook/addons": "^7.6.17",
     "turbo": "^2.2.3",
