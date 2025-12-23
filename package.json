@@ -2,11 +2,11 @@
   "name": "watercolor",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
     "lint": "biome check .",
-    "format": "biome check . --write",
-    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "biome check --apply .",
+    "clean": "turbo run clean && rm -rf node_modules **/*/node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build && changeset publish"
@@ -22,8 +22,5 @@
     "node": ">=18"
   },
   "packageManager": "npm@10.7.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "workspaces": ["apps/*", "packages/*"]
 }
