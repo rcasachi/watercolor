@@ -19,6 +19,10 @@
     "//#lint": {},
     "//#format": {
       "cache": false
+    },
+    "generate:component": {
+      "cache": false,
+      "interactive": true
     }
   }
 }

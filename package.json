@@ -9,7 +9,8 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "release": "turbo run build && changeset publish",
+    "generate:component": "turbo run generate:component --filter=./packages/ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -22,8 +23,5 @@
     "node": ">=18"
   },
   "packageManager": "npm@10.7.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "workspaces": ["apps/*", "packages/*"]
 }
