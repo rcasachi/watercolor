@@ -10,7 +10,9 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build && changeset publish",
-    "generate:component": "turbo run generate:component --filter=./packages/ui"
+    "generate:component": "turbo run generate:component --filter=./packages/ui",
+    "export:component": "turbo run export:component --filter=./packages/ui",
+    "generate:shadcn": "turbo run generate:shadcn --filter=./packages/ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -20,8 +22,11 @@
     "typescript": "5.5.4"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "packageManager": "npm@10.7.0",
-  "workspaces": ["apps/*", "packages/*"]
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

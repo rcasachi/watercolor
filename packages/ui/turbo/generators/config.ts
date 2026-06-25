@@ -28,4 +28,24 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
   })
+
+  plop.setGenerator('export-component', {
+    description: 'Export a react component',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of the component?',
+      },
+    ],
+    actions: [
+      {
+        type: 'append',
+        path: 'package.json',
+        pattern: /"exports": {(?<insertion>)/g,
+        template:
+          '    "./{{kebabCase name}}": "./src/components/ui/{{kebabCase name}}.tsx",',
+      },
+    ],
+  })
 }

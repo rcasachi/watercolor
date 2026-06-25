@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@water-color/ui": "*",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -27,8 +27,8 @@
     "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/test": "^8.4.5",
     "@storybook/theming": "^8.4.7",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^19.2.3",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.3",
     "globals": "^15.11.0",
     "storybook": "^8.4.5",

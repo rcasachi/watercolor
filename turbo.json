@@ -23,6 +23,14 @@
     "generate:component": {
       "cache": false,
       "interactive": true
+    },
+    "export:component": {
+      "cache": false,
+      "interactive": true
+    },
+    "generate:shadcn": {
+      "cache": false,
+      "interactive": true
     }
   }
 }

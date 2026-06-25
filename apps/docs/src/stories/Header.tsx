@@ -1,6 +1,6 @@
 import { Button } from './Button'
 import './header.css'
-import '@water-color/ui/global.css'
+import '@water-color/ui/globals.css'
 
 type User = {
   name: string

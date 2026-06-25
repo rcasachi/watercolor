@@ -1,3 +1,5 @@
+@import "@water-color/ui/globals.css";
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
